@@ -38,6 +38,11 @@ func (a *App) initalizeRoutes() {
 	a.Router.HandleFunc("/products", a.allProducts).Methods("GET")
 	a.Router.HandleFunc("/product/{id}", a.fetchProduct).Methods("GET")
 	a.Router.HandleFunc("/products", a.newProduct).Methods("POST")
+
+	a.Router.HandleFunc("/orders", a.allOrders).Methods("GET")
+	a.Router.HandleFunc("/order/{id}", a.fetchOrder).Methods("GET")
+	a.Router.HandleFunc("/orders", a.newOrder).Methods("POST")
+	a.Router.HandleFunc("/orderitems", a.newOrderItems).Methods("POST")
 }
 
 func (a *App) allProducts(w http.ResponseWriter, r *http.Request) {
@@ -80,6 +85,80 @@ func (a *App) newProduct(w http.ResponseWriter, r *http.Request) {
 	}
 
 	respondWithJSON(w, http.StatusOK, p)
+}
+
+func (a *App) allOrders(w http.ResponseWriter, r *http.Request) {
+	orders, err := getOrders(a.DB)
+	if err != nil {
+		fmt.Printf("allOrders error: %s\n", err.Error())
+		respondWithError(w, http.StatusInternalServerError, err.Error())
+		return
+	}
+
+	respondWithJSON(w, http.StatusOK, orders)
+}
+
+func (a *App) fetchOrder(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	id := vars["id"]
+
+	var o order
+	o.ID, _ = strconv.Atoi(id)
+	err := o.getOrder(a.DB)
+	if err != nil {
+		fmt.Printf("getOrder error: %s\n", err.Error())
+		respondWithError(w, http.StatusInternalServerError, err.Error())
+		return
+	}
+
+	respondWithJSON(w, http.StatusOK, o)
+}
+
+func (a *App) newOrder(w http.ResponseWriter, r *http.Request) {
+	reqBody, _ := ioutil.ReadAll(r.Body)
+
+	var o order
+	json.Unmarshal(reqBody, &o)
+
+	err := o.createOrder(a.DB)
+	if err != nil {
+		fmt.Printf("newOrder error: %s\n", err.Error())
+		respondWithError(w, http.StatusInternalServerError, err.Error())
+		return
+	}
+
+	for _, item := range o.Items {
+		var oi orderItem
+		oi = item
+		oi.OrderID = o.ID
+		err := oi.createOrderItem(a.DB)
+		if err != nil {
+			fmt.Printf("newOrder, newOrderItem error: %s\n", err.Error())
+			respondWithError(w, http.StatusInternalServerError, err.Error())
+			return
+		}
+
+		respondWithJSON(w, http.StatusOK, o)
+	}
+}
+
+func (a *App) newOrderItems(w http.ResponseWriter, r *http.Request) {
+	reqBody, _ := ioutil.ReadAll(r.Body)
+	var ois []orderItem
+	json.Unmarshal(reqBody, &ois)
+
+	for _, item := range ois {
+		var oi orderItem
+		oi = item
+		err := oi.createOrderItem(a.DB)
+		if err != nil {
+			fmt.Printf("newOrderItem error: %s\n", err.Error())
+			respondWithError(w, http.StatusInternalServerError, err.Error())
+			return
+		}
+	}
+
+	respondWithJSON(w, http.StatusOK, ois)
 }
 
 func (a *App) Run() {

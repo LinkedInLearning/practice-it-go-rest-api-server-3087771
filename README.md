@@ -1,7 +1,10 @@
-# Practice It: Go Rest API Server
-This is the repository for the LinkedIn Learning course `Practice It: Go Rest API Server`. The full course is available from [LinkedIn Learning][lil-course-url].
+# Practice It: Go Rest API Server 
+This is the repository for the LinkedIn Learning course Practice It: Go Rest API Server . The full course is available from [LinkedIn Learning][lil-course-url].
 
-_See the readme file in the main branch for updated instructions and information._
+![Practice It: Go Rest API Server ][lil-thumbnail-url]
+
+Go is one of the hottest programming languages today. Familiarity with it empowers you to go after a job or project that uses Go as its programming language. In this course, instructor Martine Moses goes over golang basics, such as project layout, creating Go modules, and importing your own libraries and modules or third-party libraries and modules. She also shows you the processes for creating a rest server, creating routers and handlers, and working with a database.<br><br>This course is integrated with GitHub Codespaces, an instant cloud developer environment that offers all the functionality of your favorite IDE without the need for any local machine setup. With GitHub Codespaces, you can get hands-on practice from any machine, at any time—all while using a tool that you’ll likely encounter in the workplace. Check out the [Using GitHub Codespaces with this course][gcs-video-url] video to learn how to get started.
+
 ## Instructions
 This repository has branches for each of the videos in the course. You can use the branch pop up menu in github to switch to a specific branch and take a look at the course at that stage, or you can add `/tree/BRANCH_NAME` to the URL to go to the branch you want to access.
 
@@ -20,15 +23,13 @@ To resolve this issue:
     Add changes to git using this command: git add .
 	Commit changes using this command: git commit -m "some message"
 
-## Installing
-1. To use these exercise files, you must have the following installed:
-	- [list of requirements for course]
-2. Clone this repository into your local machine using the terminal (Mac), CMD (Windows), or a GUI tool like SourceTree.
-3. [Course-specific instructions]
+### Instructor
 
+Martine Moses
 
-[0]: # (Replace these placeholder URLs with actual course URLs)
+Check out my other courses on [LinkedIn Learning](https://www.linkedin.com/learning/instructors/martine-moses?u=104).
 
-[lil-course-url]: https://www.linkedin.com/learning/
-[lil-thumbnail-url]: http://
+[lil-course-url]: https://www.linkedin.com/learning/practice-it-go-rest-api-server
+[lil-thumbnail-url]: https://media.licdn.com/dms/image/D560DAQFftIF8plC-fw/learning-public-crop_675_1200/0/1666990225464?e=1667952000&v=beta&t=2aHlb2hbcoPPM5QUU6UXTzyt9D9rs-t6I9qq62HlmXw
+[gcs-video-url]: https://www.linkedin.com/learning/practice-it-go-rest-api-server/using-github-codespaces-with-this-course
 

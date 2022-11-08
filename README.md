@@ -1,5 +1,5 @@
 # Practice It: Go Rest API Server 
-This is the repository for the LinkedIn Learning course Practice It: Go Rest API Server . The full course is available from [LinkedIn Learning][lil-course-url].
+This is the repository for the LinkedIn Learning course Practice It: Go Rest API Server. The full course is available from [LinkedIn Learning][lil-course-url].
 
 ![Practice It: Go Rest API Server ][lil-thumbnail-url]
 

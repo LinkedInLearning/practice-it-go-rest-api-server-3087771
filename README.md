@@ -1,7 +1,7 @@
 # Practice It: Go Rest API Server 
 This is the repository for the LinkedIn Learning course Practice It: Go Rest API Server. The full course is available from [LinkedIn Learning][lil-course-url].
 
-![Practice It: Go Rest API Server ][lil-thumbnail-url]
+![1666990225464](https://user-images.githubusercontent.com/28540243/200746437-b6b51725-fa2d-4f87-bb14-7342c04fa810.jpeg)
 
 Go is one of the hottest programming languages today. Familiarity with it empowers you to go after a job or project that uses Go as its programming language. In this course, instructor Martine Moses goes over golang basics, such as project layout, creating Go modules, and importing your own libraries and modules or third-party libraries and modules. She also shows you the processes for creating a rest server, creating routers and handlers, and working with a database.<br><br>This course is integrated with GitHub Codespaces, an instant cloud developer environment that offers all the functionality of your favorite IDE without the need for any local machine setup. With GitHub Codespaces, you can get hands-on practice from any machine, at any time—all while using a tool that you’ll likely encounter in the workplace. Check out the [Using GitHub Codespaces with this course][gcs-video-url] video to learn how to get started.
 
